@@ -90,15 +90,14 @@ public class ProductController {
 
 
     //Pour les tests
-    @GetMapping(value = "test/produits/{prix}")
-    public List<Product> testeDeRequetes(@PathVariable int prix) {
-
-        return productDao.chercherUnProduitCher(400);
+    @GetMapping(value = "test/produits/{prixLimit}")
+    public List<Product> testeDeRequetes(@PathVariable int prixLimit) {
+        return productDao.findByPrixGreaterThan(prixLimit);
     }
 
     @GetMapping(value = "/AdminProduits")
     public List<Product> afficherMarge() {
-        return productDao.calculerLaMarge();
+        return productDao.calculerMargeProduit();
 
     }
 
