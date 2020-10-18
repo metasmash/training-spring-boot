@@ -1,10 +1,10 @@
 # training-spring-boot
 training spring boot 
 
-####DONE:
+###DONE:
 - [x] Partie 1 - Affichage de la marge
 
-####TODO:
+###TODO:
 - [ ] Partie 2 - Tri par ordre alphabétique
 - [ ] Partie 3 - Validation de prix de vente
 - [ ] Partie 4 - CiruitBreaker
