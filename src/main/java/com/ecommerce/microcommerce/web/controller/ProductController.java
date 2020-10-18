@@ -3,6 +3,7 @@ package com.ecommerce.microcommerce.web.controller;
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
@@ -16,7 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Api( description="API pour es opérations CRUD sur les produits.")
@@ -96,10 +99,11 @@ public class ProductController {
     }
 
     @GetMapping(value = "/AdminProduits")
-    public List<Product> afficherMarge() {
-        return productDao.calculerMargeProduit();
+    public List<String> afficherMarge() {
+        List<Product> data = productDao.findAll();
+        return data.stream()
+                .map(e ->  e.calculerMargeProduit()).collect(Collectors.toList());
 
     }
-
 
 }
