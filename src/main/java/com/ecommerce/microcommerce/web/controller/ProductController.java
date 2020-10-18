@@ -3,6 +3,7 @@ package com.ecommerce.microcommerce.web.controller;
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
+import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Api( description="API pour es opérations CRUD sur les produits.")
+@Api(description = "API pour es opérations CRUD sur les produits.")
 
 @RestController
 public class ProductController {
@@ -52,12 +53,14 @@ public class ProductController {
 
         Product produit = productDao.findById(id);
 
-        if(produit==null) throw new ProduitIntrouvableException("Le produit avec l'id " + id + " est INTROUVABLE. Écran Bleu si je pouvais.");
+        if (produit == null)
+            throw new ProduitIntrouvableException("Le produit avec l'id " + id + " est INTROUVABLE. Écran Bleu si je pouvais. <- MDRRRR");
+
+        if (produit.isFree())
+            throw new ProduitGratuitException("Le produit avec l'id" + id + "est GRATUIT. ATTENTION ECRAN ROUGE SI JE POUVAIS!!!!");
 
         return produit;
     }
-
-
 
 
     //ajouter un produit
@@ -65,7 +68,7 @@ public class ProductController {
 
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
 
-        Product productAdded =  productDao.save(product);
+        Product productAdded = productDao.save(product);
 
         if (productAdded == null)
             return ResponseEntity.noContent().build();
@@ -79,13 +82,13 @@ public class ProductController {
         return ResponseEntity.created(location).build();
     }
 
-    @DeleteMapping (value = "/Produits/{id}")
+    @DeleteMapping(value = "/Produits/{id}")
     public void supprimerProduit(@PathVariable int id) {
 
         productDao.delete(id);
     }
 
-    @PutMapping (value = "/Produits")
+    @PutMapping(value = "/Produits")
     public void updateProduit(@RequestBody Product product) {
 
         productDao.save(product);

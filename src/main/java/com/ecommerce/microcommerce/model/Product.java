@@ -8,7 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 
+import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
+
+import java.io.FileNotFoundException;
+
 @Entity
+
 //@JsonFilter("monFiltreDynamique")
 public class Product {
 
@@ -16,10 +21,10 @@ public class Product {
     @GeneratedValue
     private int id;
 
-    @Length(min=3, max=20, message = "Nom trop long ou trop court. Et oui messages sont plus stylés que ceux de Spring")
+    @Length(min = 3, max = 20, message = "Nom trop long ou trop court. Et oui messages sont plus stylés que ceux de Spring")
     private String nom;
 
-    @Min(value = 1)
+    @Min(value = 0)
     private int prix;
 
     //information que nous ne souhaitons pas exposer
@@ -69,17 +74,21 @@ public class Product {
         this.prixAchat = prixAchat;
     }
 
+    public boolean isFree() {
+        return prix == 0;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prix=" + prix +
-                ", prixAchat="+prixAchat+
+                ", prixAchat=" + prixAchat +
                 '}';
     }
 
     public String calculerMargeProduit() {
-        return "{ Product{id="+id+", nom='"+nom+"', prix="+prix+"}:" +(prix-prixAchat);
+        return "{ Product{id=" + id + ", nom='" + nom + "', prix=" + prix + "}:" + (prix - prixAchat);
     }
 }

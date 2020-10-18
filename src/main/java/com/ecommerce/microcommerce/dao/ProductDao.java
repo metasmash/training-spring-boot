@@ -24,11 +24,12 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 
     List<Product> findByNomLike(String recherche);
 
+    //2.Ordonner par ordre alphabétique.
     List<Product> findALlByOrderByNom();
 
 
     @Query(CHERCHER_PRODUIT_CHER)
-    List<Product>  chercherUnProduitCher(@Param("prixLimit") int prix);
+    List<Product> chercherUnProduitCher(@Param("prixLimit") int prix);
 
     @Query(MARGE_PRODUIT)
     List<Product> calculerMargeProduit();
