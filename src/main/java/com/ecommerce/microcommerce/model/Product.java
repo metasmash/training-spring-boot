@@ -80,6 +80,6 @@ public class Product {
     }
 
     public String calculerMargeProduit() {
-        return "{ Product{id="+id+", nom="+nom+", prix="+prix+"}:" +(prix-prixAchat);
+        return "{ Product{id="+id+", nom='"+nom+"', prix="+prix+"}:" +(prix-prixAchat);
     }
 }

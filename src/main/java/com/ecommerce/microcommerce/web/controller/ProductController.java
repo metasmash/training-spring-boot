@@ -102,7 +102,7 @@ public class ProductController {
     public List<String> afficherMarge() {
         List<Product> data = productDao.findAll();
         return data.stream()
-                .map(e ->  e.calculerMargeProduit()).collect(Collectors.toList());
+                .map(Product::calculerMargeProduit).collect(Collectors.toList());
 
     }
 
