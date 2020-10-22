@@ -22,7 +22,7 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 
     List<Product> findByPrixGreaterThan(int prixLimit);
 
-    List<Product> findByNomLike(String recherche);
+    List<Product> findByNomLike(String nom);
 
     //2.Ordonner par ordre alphabétique.
     List<Product> findALlByOrderByNom();

@@ -109,4 +109,14 @@ public class ProductController {
 
     }
 
+    @GetMapping(value = "/produitsTrieParNom")
+    public List<Product> trierProduit(){
+        return productDao.findALlByOrderByNom();
+    }
+
+    @GetMapping(value= "/Produits/nom/{nom}")
+    public List<Product> rechercheParNom(@PathVariable String nom){
+        return productDao.findByNomLike(nom);
+    }
+
 }
