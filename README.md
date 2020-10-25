@@ -15,7 +15,7 @@ training spring boot
 
 - [ ] Partie 5 - Mettre en place des tests unitaires
 
-#### TODO:
+#### TODO :
 
 - [ ] Partie 7 **UNDEFINED**
 - [ ] Partie 8 _BONUS_ - SpringSecurity
@@ -23,6 +23,6 @@ training spring boot
 
 # GIGA BONNUS DE LA MROT:
 
-- [ ] Implémenter un peu de front-end
+- [x] Implémenter un peu de front-end
 
 La techno utilisée sera React.
