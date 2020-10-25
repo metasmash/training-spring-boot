@@ -8,11 +8,11 @@ training spring boot
 - [x] Partie 2 - Tri par ordre alphabétique
 - [x] Partie 3 - Validation de prix de vente
 - [x] Partie 4 - CiruitBreaker
+- [x] Partie 6 - Test des méthodes créées
 - [x] Partie 10 - Swagger
 
 #### DOING:
 
-- [ ] Partie 6 - Test des méthodes créées
 - [ ] Partie 5 - Mettre en place des tests unitaires
 
 #### TODO:
