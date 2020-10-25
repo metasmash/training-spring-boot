@@ -4,6 +4,7 @@ import * as req from './requests'
 import _ from 'lodash'
 import { Button, Card, Spinner } from 'react-bootstrap'
 import { TextField } from '@material-ui/core'
+import { Banner } from './component/Banner'
 
 const App = () => {
     const [products, setProducts] = useState(null)
@@ -25,6 +26,7 @@ const App = () => {
 
     return (
         <div className="App">
+            <Banner />
             <h1 className={css.centered}>
                 Running spring-boot Product api-rest.
             </h1>
