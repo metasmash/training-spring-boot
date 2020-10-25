@@ -23,3 +23,10 @@ export const getProduitsTriNom = async () =>
 
 export const deleteArticle = async (id) =>
     await axios.delete(`${baseURL}${URI.PRODUIT_ID(id)}`)
+
+export const ajouterArticle = async (nom, prix, prixAchat) =>
+    await axios.post(`${baseURL}${URI.PRODUITS}`, {
+        nom,
+        prix,
+        prixAchat,
+    })

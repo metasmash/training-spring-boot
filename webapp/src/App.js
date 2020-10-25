@@ -4,6 +4,7 @@ import * as req from './requests'
 import _ from 'lodash'
 import { Button, Card, Spinner } from 'react-bootstrap'
 import { TextField } from '@material-ui/core'
+import Footer from './component/Footer'
 import { Banner } from './component/Banner'
 
 const App = () => {
@@ -11,6 +12,10 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedButton, setSelectedButton] = useState(0)
     const [searchNom, setSearchNom] = useState('')
+
+    const [nameToPost, setNameToPost] = useState('')
+    const [priceToPost, setPriceToPost] = useState(0)
+    const [buyPriceToPost, setBuyPriceToPost] = useState(0)
 
     const handleKeyPress = (e) => {
         //See notes about 'which' and 'key'
@@ -86,6 +91,56 @@ const App = () => {
                     }}
                 />
             </div>
+
+            <div className={css.flex}>
+                <TextField
+                    style={{ margin: 20 }}
+                    value={nameToPost}
+                    id="outlined-search"
+                    label="Nom"
+                    type="search"
+                    variant="outlined"
+                    onChange={(e) => {
+                        setNameToPost(e.target.value)
+                    }}
+                />
+                <TextField
+                    style={{ margin: 20 }}
+                    value={priceToPost}
+                    id="outlined-search"
+                    label="Prix"
+                    type="number"
+                    variant="outlined"
+                    onChange={(e) => {
+                        setPriceToPost(e.target.value)
+                    }}
+                />
+                <TextField
+                    style={{ margin: 20 }}
+                    value={buyPriceToPost}
+                    id="outlined-search"
+                    label="Prix achat"
+                    type="number"
+                    variant="outlined"
+                    onChange={(e) => {
+                        setBuyPriceToPost(e.target.value)
+                    }}
+                />
+
+                <Button
+                    onClick={() => {
+                        req.ajouterArticle(
+                            nameToPost,
+                            priceToPost,
+                            buyPriceToPost
+                        ).then(() => {
+                            alert(`Article ${nameToPost} added ;)))`)
+                        })
+                    }}
+                >
+                    POST ARTICLE
+                </Button>
+            </div>
             {isLoading ? (
                 <Spinner
                     animation="border"
@@ -137,6 +192,7 @@ const App = () => {
                     )}
                 </div>
             )}
+            <Footer />
         </div>
     )
 }
