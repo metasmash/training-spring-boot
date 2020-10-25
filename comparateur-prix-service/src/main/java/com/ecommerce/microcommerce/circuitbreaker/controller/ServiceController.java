@@ -15,7 +15,7 @@ public class ServiceController {
     private final String ROUTES_PRODUIT_ID = "/Produits/{id}";
     private final String ROUTES_ADMIN_PRODUIT = "/AdminProduits";
     private final String ROUTES_PRODUIT_NOM = "/Produits/nom/{nom}";
-    private final String ROUTES_PRODUITS_ALPHA ="/produitsTrieParNom";
+    private final String ROUTES_PRODUITS_ALPHA ="/Produits/trieParNom";
 
     @Autowired
     ServiceDelegate serviceDelegate;

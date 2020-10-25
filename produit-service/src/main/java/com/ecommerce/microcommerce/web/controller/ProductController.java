@@ -66,7 +66,6 @@ public class ProductController {
     //ajouter un produit
     @ApiOperation(value = "Ajouter un produit", httpMethod = "POST")
     @PostMapping(value = "/Produits")
-
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
 
         Product productAdded = productDao.save(product);
@@ -115,7 +114,7 @@ public class ProductController {
     }
 
     @ApiOperation(value = "Récupère les produits triés par ordre alphabétique.", httpMethod = "GET")
-    @GetMapping(value = "/produitsTrieParNom")
+    @GetMapping(value = "/Produits/trieParNom")
     public List<Product> trierProduit(){
         return productDao.findALlByOrderByNom();
     }
