@@ -32,9 +32,7 @@ const App = () => {
     return (
         <div className="App">
             <Banner />
-            <h1 className={css.centered}>
-                Running spring-boot Product api-rest.
-            </h1>
+            <h1 className={css.centered}>Shoppyshop!</h1>
             <div className={css.flexButtons}>
                 <Button
                     variant={selectedButton === 1 ? 'primary' : 'secondary'}
