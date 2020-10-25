@@ -8,6 +8,7 @@ training spring boot
 - [x] Partie 2 - Tri par ordre alphabétique
 - [x] Partie 3 - Validation de prix de vente
 - [x] Partie 4 - CiruitBreaker
+- [x] Partie 10 - Swagger
 
 #### DOING:
 
@@ -19,7 +20,6 @@ training spring boot
 - [ ] Partie 7 **UNDEFINED**
 - [ ] Partie 8 _BONUS_ - SpringSecurity
 - [ ] Partie 9 - Gestion des erreurs HTTP
-- [ ] Partie 10 - Swagger
 
 # GIGA BONNUS DE LA MROT:
 
