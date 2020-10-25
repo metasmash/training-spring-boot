@@ -13,5 +13,5 @@ export const svgBackgroundImage = (img) =>
         background-image: url(${img});
         background-size: cover;
         position: relative;
-        background-position: 100% 46%;
+        background-position: 45% 57%;
     `)
