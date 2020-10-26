@@ -105,7 +105,7 @@ public class ServiceDelegate {
     @SuppressWarnings("unused")
     private String callServiceAndGetDataById_Fallback(int id) {
         System.out.println("Service is down!!! fallback route enabled...");
-        return "CIRCUIT BREAKER ENABLED!!!No Response From Service at this moment. Service will be back shortly - " + new Date();
+        return "For ID: "+id+" ---- CIRCUIT BREAKER ENABLED!!!No Response From Service at this moment. Service will be back shortly - " + new Date();
     }
 
     @SuppressWarnings("unused")
@@ -123,7 +123,7 @@ public class ServiceDelegate {
     @SuppressWarnings("unused")
     private String callServiceAndGetDataByNom_Fallback(String nom) {
         System.out.println("Service is down!!! fallback route enabled...");
-        return "CIRCUIT BREAKER ENABLED!!!No Response From Service at this moment. Service will be back shortly - " + new Date();
+        return "For nom: "+nom+" ---- CIRCUIT BREAKER ENABLED!!!No Response From Service at this moment. Service will be back shortly - " + new Date();
     }
 
     @Bean
